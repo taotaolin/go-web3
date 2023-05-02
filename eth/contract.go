@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/chenzhijie/go-web3/rpc"
-	"github.com/chenzhijie/go-web3/types"
-	"github.com/chenzhijie/go-web3/utils"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/taotaolin/go-web3/rpc"
+	"github.com/taotaolin/go-web3/types"
+	"github.com/taotaolin/go-web3/utils"
 )
 
 type Contract struct {

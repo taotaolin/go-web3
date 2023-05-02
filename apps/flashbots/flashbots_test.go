@@ -7,10 +7,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/chenzhijie/go-web3"
-	"github.com/chenzhijie/go-web3/types"
 	"github.com/ethereum/go-ethereum/common"
 	eTypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/taotaolin/go-web3"
+	"github.com/taotaolin/go-web3/types"
 )
 
 const (
