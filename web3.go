@@ -1,8 +1,6 @@
 package web3
 
 import (
-	"strings"
-
 	"github.com/chenzhijie/go-web3/eth"
 	"github.com/chenzhijie/go-web3/rpc"
 	"github.com/chenzhijie/go-web3/utils"
@@ -25,19 +23,26 @@ func NewWeb3WithProxy(provider, proxy string) (*Web3, error) {
 	}
 	e := eth.NewEth(c)
 
-	providerLowerStr := strings.ToLower(provider)
-
-	if strings.Contains(providerLowerStr, "ropsten") {
-		e.SetChainId(3)
-	} else if strings.Contains(providerLowerStr, "kovan") {
-		e.SetChainId(42)
-	} else if strings.Contains(providerLowerStr, "rinkeby") {
-		e.SetChainId(4)
-	} else if strings.Contains(providerLowerStr, "goerli") {
-		e.SetChainId(5)
-	} else {
-		e.SetChainId(1)
+	_chainID, err := e.ChainID()
+	if err != nil {
+		return nil, err
 	}
+
+	e.SetChainId(_chainID.Int64())
+
+	//providerLowerStr := strings.ToLower(provider)
+
+	//if strings.Contains(providerLowerStr, "ropsten") {
+	//	e.SetChainId(3)
+	//} else if strings.Contains(providerLowerStr, "kovan") {
+	//	e.SetChainId(42)
+	//} else if strings.Contains(providerLowerStr, "rinkeby") {
+	//	e.SetChainId(4)
+	//} else if strings.Contains(providerLowerStr, "goerli") {
+	//	e.SetChainId(5)
+	//} else {
+	//	e.SetChainId(1)
+	//}
 
 	u := utils.NewUtils()
 	w := &Web3{
